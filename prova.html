@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>loadmapfromconfigHTML</title>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+        <style type='text/css'>body{margin:0;padding:0;overflow:hidden;font-family:'Segoe UI',Helvetica,Arial,Sans-Serif}</style>
+    </head>
+    <body>
+        <div id='printoutPanel'></div>
+        
+        <div id='myMap' style='width: 100vw; height: 100vh;'></div>
+        <script type='text/javascript'>
+            function loadMapScenario() {
+                Microsoft.Maps.ConfigurableMap.createFromConfig(document.getElementById('myMap'), 'https://bingmapsisdk.blob.core.windows.net/isdksamples/configmap2.json', false, null, successCallback, errorCallback);
+                function successCallback(mapObj) {
+                    document.getElementById('printoutPanel').innerHTML = 'success';
+                }
+                function errorCallback(message) {
+                    document.getElementById('printoutPanel').innerHTML = message;
+                }
+                
+            }
+        </script>
+        <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AojqX94L8h1lRDwCSlJd2h95aXgRmtFyr0FRwZtfmm5Jr8AdhmnGCG36rJeHVx6C&callback=loadMapScenario' async defer></script>
+    </body>
+</html>
